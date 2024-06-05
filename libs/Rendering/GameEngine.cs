@@ -440,7 +440,7 @@ public sealed class GameEngine
         }
         catch (ArgumentOutOfRangeException)
         {
-            // Handle the exception gracefully, for example by skipping the timer rendering
+            // if console is too small
             Console.WriteLine("Error: Cannot render timer, please enlarge the console window.");
         }
     }
