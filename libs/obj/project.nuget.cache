@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fd9uGP98WtsXyY5MydV59ikCKQPFpIQcJ2sWjrngtsZi4XRPZLZM07E9GmQTvbbZXuyuHTnChEfFCzIpFidTFA==",
+  "dgSpecHash": "6Mw9ddzsp83KBaaa7XyXP2VQOhLTNa79x1ymKgv61N/gfZc6p4vl75qxN6CkxARAlX8/8ALlSsR4x8UD18Xjpw==",
   "success": true,
-  "projectFilePath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/libs.csproj",
+  "projectFilePath": "C:\\Users\\kendl\\WebstormProjects\\escapeRoom\\EscapeRoom\\libs\\libs.csproj",
   "expectedPackageFiles": [
-    "/Users/andreawindisch/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\kendl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

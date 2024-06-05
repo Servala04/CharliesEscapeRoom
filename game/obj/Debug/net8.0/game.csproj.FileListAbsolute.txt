@@ -38,3 +38,23 @@
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/game.pdb
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/game.genruntimeconfig.cache
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/ref/game.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.exe
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.deps.json
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.runtimeconfig.json
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.pdb
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\libs.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\bin\Debug\net8.0\libs.pdb
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.AssemblyReference.cache
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.AssemblyInfoInputs.cache
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.AssemblyInfo.cs
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.CoreCompileInputs.cache
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.sourcelink.json
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.Up2Date
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\refint\game.dll
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.pdb
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.genruntimeconfig.cache
+C:\Users\kendl\WebstormProjects\escapeRoom\EscapeRoom\game\obj\Debug\net8.0\ref\game.dll

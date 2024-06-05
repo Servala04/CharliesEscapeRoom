@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/andreawindisch/.nuget/packages/": {}
+    "C:\\Users\\kendl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/libs.csproj",
+      "projectUniqueName": "C:\\Users\\kendl\\WebstormProjects\\escapeRoom\\EscapeRoom\\libs\\libs.csproj",
       "projectName": "libs",
-      "projectPath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/libs.csproj",
-      "packagesPath": "/Users/andreawindisch/.nuget/packages/",
-      "outputPath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/obj/",
+      "projectPath": "C:\\Users\\kendl\\WebstormProjects\\escapeRoom\\EscapeRoom\\libs\\libs.csproj",
+      "packagesPath": "C:\\Users\\kendl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kendl\\WebstormProjects\\escapeRoom\\EscapeRoom\\libs\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/andreawindisch/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\kendl\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -117,7 +117,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

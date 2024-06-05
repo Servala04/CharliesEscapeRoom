@@ -43,6 +43,7 @@ public sealed class GameEngine
         moveCount = 0;
         startTime = DateTime.Now;
         countdown = countdownDuration;
+
     }
 
     private GameObject? _focusedObject;
@@ -59,6 +60,7 @@ public sealed class GameEngine
     {
         var boxes = gameObjects.OfType<Box>().Select((b, index) => new { Box = b, Index = index }).ToList();
         var goals = gameObjects.OfType<Goal>().Select((g, index) => new { Goal = g, Index = index }).ToList();
+        var keys = gameObjects.OfType<Key>().Select((k, index) => new { Key = k, Index = index }).ToList();
 
         var gameState = new
         {
@@ -67,7 +69,8 @@ public sealed class GameEngine
             Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
             Boxes = boxes.Select(b => new { Color = b.Index == 0 ? 7 : 6, X = b.Box.PosX, Y = b.Box.PosY }).ToList(),
             Goals = goals.Select(g => new { Color = g.Index == 0 ? 7 : 6, X = g.Goal.PosX, Y = g.Goal.PosY }).ToList(),
-            Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList()
+            Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList(),
+            Keys = keys.Select(k => new { Color = k.Index == 0 ? 7 : 6, X = k.Key.PosX, Y = k.Key.PosY }).ToList()
         };
 
         string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
@@ -99,6 +102,9 @@ public sealed class GameEngine
         foreach (var obstacle in gameState.Obstacles)
         {
             AddGameObject(new Obstacle { PosX = obstacle.X, PosY = obstacle.Y });
+        }
+        foreach(var key in gameState.Keys){
+        AddGameObject(new Key { PosX = key.X, PosY = key.Y,Color = key.Color});
         }
 
         // Optionally reset the focused object and other necessary states
@@ -196,6 +202,16 @@ public sealed class GameEngine
             }
         }
         return null;
+    }
+    public GameObject GetKeyObject()
+    {
+    foreach (var gameObject in gameObjects)
+            {
+    if (gameObject is Key)
+    {
+    return gameObject;}
+    }
+    return null;
     }
 
 
@@ -386,6 +402,8 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         GameObject goal1 = GetGoalObject(1);
         GameObject goal2 = GetGoalObject(2);
         GameObject player = GetPlayerObject();
+        GameObject key = GetKeyObject();
+
 
 
         // Logic for winning
