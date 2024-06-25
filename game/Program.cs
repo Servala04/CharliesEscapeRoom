@@ -17,16 +17,16 @@ class Program
         // Main game loop
         while (true)
         {
-            engine.Render();
 
             // Handle keyboard input
             if(Console.KeyAvailable){
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 inputHandler.Handle(keyInfo);
             }
+            engine.Render();
 
             //game logic updates or delays to reduce cpu usage
-            System.Threading.Thread.Sleep(100);
+            Thread.Sleep(150);
 
         }
     }

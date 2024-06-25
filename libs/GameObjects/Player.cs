@@ -8,7 +8,7 @@ public class Player : GameObject {
 
     public Player () : base(){
         Type = GameObjectType.Player;
-        CharRepresentation = '⯈';
+        CharRepresentation = '⯈'; //〠⯈
         Color = ConsoleColor.DarkYellow;
         FacingDirection = Direction.Right;
         HasKey = false;

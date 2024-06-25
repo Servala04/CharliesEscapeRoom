@@ -7,6 +7,6 @@
 			"group": "build",
 			"problemMatcher": [],
 			"label": "dotnet: build"
-		},
+		}
 	]
 }

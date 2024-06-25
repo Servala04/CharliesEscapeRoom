@@ -50,7 +50,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello! Welcome to the game! Find the key to unlock the door and escape the room!";
+    string dialogMessage = "Hello! Welcome to the first level! You need to talk to the Bruno the Bear and leave through the door!";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -356,10 +356,10 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                if (player.PosX == goal.PosX && player.PosY == goal.PosY && !player.HasKey)
                 {
                     if (currentLevelIndex == 3) {
-                        dialogMessage = "Congratulations! You have escaped!";
+                        dialogMessage = "End of the day! You have completed all the levels!";
                     }
                     else {
-                        dialogMessage = "You need to find the key to unlock the door!";
+                        dialogMessage = "You need to talk to the NPC and leave through the door!";
                     }
                     return false;
                 }
@@ -370,7 +370,16 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                     // Increment the current level index
                     currentLevelIndex++;
                     player.HasKey = false;
-                    dialogMessage = "Welcome to the next level! Search for the key to unlock the door.";
+                  
+                     if(currentLevelIndex == 1){
+                    dialogMessage = "Welcome to the second level! You need to talk to the Daisy the cow and leave through the door!";
+
+                    }
+                    if(currentLevelIndex == 2){
+                    dialogMessage = "Welcome to the last level! You need to talk to the Kai the seagull and leave through the door!";
+
+                    }
+                    //dialogMessage = "Welcome to the next level! You need to talk to the NPC and leave through the door!";
                     // Check if there are more levels to load
                     if (currentLevelIndex < levelFilePaths.Length)
                     {
@@ -389,7 +398,16 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                 }
                       else if (player.HasKey)
                                 {
-                                    dialogMessage = "Good you found the key, now you need to reach the door to escape the room!";
+                                    if(currentLevelIndex == 0){
+                                                                            dialogMessage = "Bruno: Thank you for the letter! You can now leave through the door!";
+                                    }
+                                    if(currentLevelIndex == 1){
+                                                                            dialogMessage = "Daisy: Ah Charlie dear! Thank you for the letter! You can now leave through the door!";
+                                    }
+                                    if(currentLevelIndex == 2){
+                                                                            dialogMessage = "Kai: Ahoy Charlie, thank you for the letter! You can now leave through the door!";
+                                    }
+                                  //  dialogMessage = "Good you talked to the NPC, now you need to reach the door to escape the room!";
                                     return false;
                                 }
                 else
@@ -411,7 +429,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
        }
 
         //Clean the map
-        Console.Clear();
+       // Console.Clear();
 
         // Render timer underneath the map
         RenderTimer();
