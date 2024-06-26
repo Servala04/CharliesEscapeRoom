@@ -290,6 +290,60 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
     }
 }
 
+ public void MainMenu()
+        {
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.Clear();
+                Console.WriteLine("Welcome to the Game!");
+                Console.WriteLine("1. Start Game");
+                Console.WriteLine("2. Exit");
+
+                Console.Write("Select an option: ");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        StartGame();
+                        break;
+                    case "2":
+                        Console.Write("Close the Terminal...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please select again.");
+                        break;
+                }
+            }
+        }
+
+private void StartGame()
+    {
+        // Setup initial game state or load the first level
+        Setup();
+        // Start the game, handle input and rendering immediately
+        RenderAndHandleInput();
+    }
+
+    private void RenderAndHandleInput()
+    {
+        while (true)
+        {
+            Render();
+
+            // Handle keyboard input
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                InputHandler.Instance.Handle(keyInfo);
+            }
+
+            // Game logic updates or delays to reduce CPU usage
+            System.Threading.Thread.Sleep(100);
+        }
+    }
 
     public void Setup()
     {

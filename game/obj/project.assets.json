@@ -73,19 +73,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\stefa\\.nuget\\packages\\": {}
+    "C:\\Users\\laura\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\game.csproj",
+      "projectUniqueName": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj",
       "projectName": "game",
-      "projectPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\game.csproj",
-      "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\obj\\",
+      "projectPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj",
+      "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -97,8 +97,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\libs\\libs.csproj": {
-              "projectPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\libs\\libs.csproj"
+            "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj": {
+              "projectPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj"
             }
           }
         }
@@ -133,7 +133,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
