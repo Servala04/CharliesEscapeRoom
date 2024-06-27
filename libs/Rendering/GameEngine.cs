@@ -50,7 +50,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello! Welcome to the first level! You need to talk to the Bruno the Bear and leave through the door!";
+    string dialogMessage = "Hello! Welcome to the first level! You need to deliver a letter to the Bruno the Bear and leave through the door!";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -340,7 +340,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
             {
                 if (key == null)
                 {
-                    Console.WriteLine("Error: The key object is null.");
+                    Console.WriteLine("Error: The NPC object is null.");
                     return false; // Return false to indicate that the level cannot be finished due to error
                 }
                 if (goal == null)
@@ -359,7 +359,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                         dialogMessage = "End of the day! You have completed all the levels!";
                     }
                     else {
-                        dialogMessage = "You need to talk to the NPC and leave through the door!";
+                        dialogMessage = "You need to deliver a letter to the NPC and leave through the door!";
                     }
                     return false;
                 }
@@ -372,11 +372,11 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                     player.HasKey = false;
                   
                      if(currentLevelIndex == 1){
-                    dialogMessage = "Welcome to the second level! You need to talk to the Daisy the cow and leave through the door!";
+                    dialogMessage = "Welcome to the second level! You need to deliver a letter to Daisy the cow and leave through the door!";
 
                     }
                     if(currentLevelIndex == 2){
-                    dialogMessage = "Welcome to the last level! You need to talk to the Kai the seagull and leave through the door!";
+                    dialogMessage = "Welcome to the last level! You need to deliver a letter to the Kai the seagull and leave through the door!";
 
                     }
                     //dialogMessage = "Welcome to the next level! You need to talk to the NPC and leave through the door!";
