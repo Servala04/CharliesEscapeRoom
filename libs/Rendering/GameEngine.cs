@@ -22,6 +22,8 @@ public sealed class GameEngine
      private TimeSpan countdownDuration = TimeSpan.FromMinutes(4);
      private TimeSpan countdown;
 
+     public bool gameHasStarted = false;
+
     public static GameEngine Instance
     {
         get
@@ -290,6 +292,37 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
     }
 }
 
+public void MainMenu()
+        {
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.Clear();
+                Console.WriteLine("Welcome to the Game!");
+                Console.WriteLine("1. Start Game");
+                Console.WriteLine("2. Exit");
+
+                Console.Write("Select an option: ");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Setup();
+                        gameHasStarted = true;
+                        exit = true;
+                        break;
+                    case "2":
+                        Console.Write("Close the Terminal...");
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please select again.");
+                        break;
+                }
+            }
+        }
 
     public void Setup()
     {

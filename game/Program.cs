@@ -13,21 +13,21 @@ class Program
         var inputHandler = InputHandler.Instance;
 
         engine.Setup();
-
+        
         // Main game loop
         while (true)
         {
-
+            if(engine.gameHasStarted){
             // Handle keyboard input
-            if(Console.KeyAvailable){
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                inputHandler.Handle(keyInfo);
+                if(Console.KeyAvailable){
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                    inputHandler.Handle(keyInfo);
+                }
+                engine.Render();
+
+                //game logic updates or delays to reduce cpu usage
+                Thread.Sleep(150);
             }
-            engine.Render();
-
-            //game logic updates or delays to reduce cpu usage
-            Thread.Sleep(150);
-
         }
     }
 }
