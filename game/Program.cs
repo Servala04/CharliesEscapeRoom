@@ -12,7 +12,7 @@ class Program
         var engine = GameEngine.Instance;
         var inputHandler = InputHandler.Instance;
 
-        engine.Setup();
+        engine.MainMenu();
         
         // Main game loop
         while (true)
