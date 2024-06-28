@@ -11,7 +11,7 @@ namespace libs
     {
         public Dialog dialog;
 
-      public Npc() : base()
+    public Npc() : base()
 {
     Type = GameObjectType.Npc;
     CharRepresentation = '⚇';
@@ -21,37 +21,60 @@ namespace libs
 
     try
     {
+      //  Console.WriteLine($"Reading dialog JSON file from path: {Path.GetFullPath(jsonFilePath)}");
+
         string jsonString = File.ReadAllText(jsonFilePath);
+     //   Console.WriteLine("Dialog JSON file content:");
+      //  Console.WriteLine(jsonString); WORKS
+
         var dialogData = JsonSerializer.Deserialize<DialogData>(jsonString);
+       // Console.WriteLine("Deserialized dialog data successfully.");
 
         // Initialize dialog nodes and responses
         var dialogNodes = new Dictionary<string, DialogNode>();
-        foreach (var nodeData in dialogData.Nodes)
-        {
-            var dialogNode = new DialogNode(nodeData.DialogID, nodeData.Text);
+       foreach (var nodeData in dialogData.Nodes)
+{
+    Console.WriteLine($"Processing node: {nodeData.DialogID}");
 
-            if (nodeData.Responses != null)
+    var dialogNode = new DialogNode(nodeData.DialogID, nodeData.Text);
+
+    if (nodeData.Responses != null)
+    {
+        foreach (var responseData in nodeData.Responses)
+        {
+            Console.WriteLine($"Processing response: {responseData.ResponseText} -> {responseData.NextNodeID}");
+            if (string.IsNullOrEmpty(responseData.NextNodeID))
             {
-                foreach (var responseData in nodeData.Responses)
-                {
-                    var nextNode = dialogData.Nodes.FirstOrDefault(n => n.DialogID == responseData.NextNodeID);
-                    if (nextNode != null)
-                    {
-                        dialogNode.AddResponse(responseData.ResponseText, new DialogNode(nextNode.DialogID, nextNode.Text));
-                    }
-                }
+                Console.WriteLine("Warning: NextNodeID is null or empty.");
+                continue;
             }
 
-            dialogNodes.Add(dialogNode.dialogID, dialogNode);
+            var nextNode = dialogData.Nodes.FirstOrDefault(n => n.DialogID == responseData.NextNodeID);
+            if (nextNode == null)
+            {
+                Console.WriteLine($"Error: NextNodeID '{responseData.NextNodeID}' not found in dialog nodes.");
+                continue;
+            }
+
+            dialogNode.AddResponse(responseData.ResponseText, new DialogNode(nextNode.DialogID, nextNode.Text));
         }
+    }
+
+    dialogNodes.Add(dialogNode.dialogID, dialogNode);
+}
 
         // Set starting node
-        var startingNode = dialogNodes[dialogData.StartingNode.DialogID];
-   // Create Dialog instance
-        dialog = new Dialog(startingNode);
-        
-       // Console.WriteLine("Dialog loaded successfully." + dialogData.StartingNode.Text);
-     
+        if (dialogData.StartingNode != null && dialogNodes.ContainsKey(dialogData.StartingNode.DialogID))
+        {
+            var startingNode = dialogNodes[dialogData.StartingNode.DialogID];
+            dialog = new Dialog(startingNode);
+        //    Console.WriteLine("Dialog initialized successfully.");
+            //Console.WriteLine($"Starting Node Text: {startingNode.Text}");
+        }
+        else
+        {
+            Console.WriteLine("Starting node is missing or not found in dialog nodes.");
+        }
     }
     catch (Exception ex)
     {
@@ -59,6 +82,4 @@ namespace libs
         // Handle error as needed
     }
 }
-    }
-   
-}
+    }}

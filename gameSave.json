@@ -2,8 +2,8 @@
   "MapWidth": 35,
   "MapHeight": 8,
   "Player": {
-    "X": 7,
-    "Y": 2
+    "X": 8,
+    "Y": 3
   },
   "Boxes": [
     {
@@ -756,7 +756,7 @@
   "Keys": [
     {
       "Color": 7,
-      "X": 7,
+      "X": -1,
       "Y": 3
     }
   ]

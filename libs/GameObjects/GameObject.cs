@@ -73,7 +73,7 @@ public class GameObject : IGameObject, IMovement
     public int GetPrevPosX() {
         return _prevPosX;
     }
-      //dialog
+    //DIALOG STUFF
     public Dialog? dialog;
 
     protected List<DialogNode> dialogNodes = new List<DialogNode>();
@@ -86,14 +86,7 @@ public void Move(int dx, int dy)
     var collisionObjects = GameEngine.Instance.GetGameObjects()
         .Where(e => e.PosX == targetX && e.PosY == targetY);
 
-    // Check if there's a dialog to start
-    foreach (var obj in collisionObjects)
-    {
-        if (obj.HasDialog())
-        {
-            obj.dialog?.Start();
-        }
-    }
+  
 
     // If no Obstacles found or collision with Key, MOVE
     if (collisionObjects.Count() == 0 || collisionObjects.First() is Key)
@@ -121,6 +114,7 @@ public void Move(int dx, int dy)
 
 void InteractWithNpc(Npc npc)
 {
+    Console.WriteLine("Should have" + npc.HasDialog());
     if (npc.HasDialog())
     {
         npc.dialog.Start(); // Start the dialog if NPC has one
@@ -133,7 +127,8 @@ void InteractWithNpc(Npc npc)
 }
 public bool HasDialog()
 {
-    return dialog != null;
+   
+return true;
 }
 
     public void UndoMove() {

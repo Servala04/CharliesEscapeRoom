@@ -313,6 +313,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         foreach (var gameObject in gameData.gameObjects)
         {
             AddGameObject(CreateGameObject(gameObject));
+         
         }
 
         _focusedObject = gameObjects.OfType<Player>().First();
@@ -518,9 +519,17 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         return gameObjectFactory.CreateGameObject(obj);
     }
 
-    public void AddGameObject(GameObject gameObject){
-        gameObjects.Add(gameObject);
+public void AddGameObject(GameObject gameObject)
+{
+    gameObjects.Add(gameObject);
+   // Console.WriteLine($"GameObject added: {gameObject.GetType().Name} at position ({gameObject.PosX}, {gameObject.PosY})");
+
+    if (gameObject is Npc npc)
+    {
+        Console.WriteLine($"Npc has dialog");
     }
+}
+
 
     private void PlaceGameObjects()
     {
