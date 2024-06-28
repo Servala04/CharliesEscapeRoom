@@ -1,0 +1,61 @@
+{
+    "Nodes": [
+      {
+        "DialogID": "1",
+        "Text": "Hello, how can I help you?",
+        "Responses": [
+          {
+            "ResponseText": "I need some information.",
+            "NextNodeID": "2"
+          },
+          {
+            "ResponseText": "Nothing, thanks.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "2",
+        "Text": "Sure, what information do you need?",
+        "Responses": [
+          {
+            "ResponseText": "Tell me more.",
+            "NextNodeID": "4"
+          },
+          {
+            "ResponseText": "Nevermind.",
+            "NextNodeID": "3"
+          }
+        ]
+      },
+      {
+        "DialogID": "3",
+        "Text": "Sorry, I can't help with that.",
+        "Responses": [
+          {
+            "ResponseText": "Okay, goodbye.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "4",
+        "Text": "Here is the information you requested.",
+        "Responses": [
+          {
+            "ResponseText": "Thank you.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "5",
+        "Text": "Goodbye!",
+        "Responses": []
+      }
+    ],
+    "StartingNode": {
+      "DialogID": "1"
+    }
+  }
+  

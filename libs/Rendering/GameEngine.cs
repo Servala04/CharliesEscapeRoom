@@ -165,6 +165,7 @@ public sealed class GameEngine
         return boxObjects;
     }
 
+
     public Player GetPlayerObject()
     {
         foreach (var gameObject in gameObjects)
@@ -220,6 +221,13 @@ public sealed class GameEngine
         return keyObjects;
     }
 
+
+ public List<GameObject> GetGameObjects()
+{
+    return Instance.gameObjects
+    .Where(obj => obj.Type != GameObjectType.Key && obj.Type != GameObjectType.Goal)
+    .ToList();
+}
 
 
 public void CheckWallCollision(GameObject player, Direction playerDirection)

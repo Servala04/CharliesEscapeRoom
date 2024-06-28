@@ -12,6 +12,7 @@ public class GameObject : IGameObject, IMovement
     public bool Collidable{ get; set; }
     public bool Movable{ get; set; }
     public bool HasKey{ get; set; }
+       // public virtual bool HasDialog => false;
 
     private char _charRepresentation = '#';
     private ConsoleColor _color;
@@ -72,16 +73,68 @@ public class GameObject : IGameObject, IMovement
     public int GetPrevPosX() {
         return _prevPosX;
     }
+      //dialog
+    public Dialog? dialog;
 
+    protected List<DialogNode> dialogNodes = new List<DialogNode>();
 
-    public void Move(int dx, int dy) {
+public void Move(int dx, int dy)
+{
+    int targetX = _posX + dx;
+    int targetY = _posY + dy;
 
+    var collisionObjects = GameEngine.Instance.GetGameObjects()
+        .Where(e => e.PosX == targetX && e.PosY == targetY);
+
+    // Check if there's a dialog to start
+    foreach (var obj in collisionObjects)
+    {
+        if (obj.HasDialog())
+        {
+            obj.dialog?.Start();
+        }
+    }
+
+    // If no Obstacles found or collision with Key, MOVE
+    if (collisionObjects.Count() == 0 || collisionObjects.First() is Key)
+    {
         _prevPosX = _posX;
         _prevPosY = _posY;
         _posX += dx;
         _posY += dy;
-        Console.WriteLine("New Position: (" + _posX + ", " + _posY + ")");
     }
+    else
+    {
+        var obj = collisionObjects.First();
+
+        if (obj is Key || obj is Goal)
+        {
+            Console.WriteLine("Collision detected with Key or Goal.");
+            return;
+        }
+        else if (obj is Npc)
+        {
+            InteractWithNpc((Npc)obj);
+        }
+    }
+}
+
+void InteractWithNpc(Npc npc)
+{
+    if (npc.HasDialog())
+    {
+        npc.dialog.Start(); // Start the dialog if NPC has one
+    }
+    else
+    {
+        Console.WriteLine("This NPC has no dialog.");
+        // Handle case where NPC has no dialog
+    }
+}
+public bool HasDialog()
+{
+    return dialog != null;
+}
 
     public void UndoMove() {
         _posX = _prevPosX;
@@ -150,12 +203,14 @@ public class GameObject : IGameObject, IMovement
             {
                 player.HasKey = true;
                    key.PosX = -1;
+                   Console.WriteLine("Key Collected");
                 //set player boolean to true
                 break;
 
             }
         }
     }
+
 
   //check if the pushed box collides with another box
   public void CheckCollisionWithAllBoxes(List<GameObject> boxes, GameObject player, Direction playerDirection, int dx, int dy)
@@ -229,4 +284,8 @@ public class GameObject : IGameObject, IMovement
       boxToPush.PosX = newBoxPosX;
       boxToPush.PosY = newBoxPosY;
   }
+
+
+  
 }
+
