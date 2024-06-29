@@ -11,22 +11,24 @@ class Program
         Console.CursorVisible = false;
         var engine = GameEngine.Instance;
         var inputHandler = InputHandler.Instance;
- 
-        engine.Setup();
 
         // Main game loop
         while (true)
         {
+            if(engine.gameHasStarted){
+                // Handle keyboard input
+                if(Console.KeyAvailable){
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                    inputHandler.Handle(keyInfo);
+                }
+                engine.Render();
 
-            // Handle keyboard input
-            if(Console.KeyAvailable){
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                inputHandler.Handle(keyInfo);
+                //game logic updates or delays to reduce cpu usage
+                Thread.Sleep(150);
+            } else {
+                Console.Clear();
+                engine.MainMenu();
             }
-            engine.Render();
-
-            //game logic updates or delays to reduce cpu usage
-            Thread.Sleep(150);
 
         }
     }
