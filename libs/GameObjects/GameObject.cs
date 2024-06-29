@@ -86,10 +86,8 @@ public void Move(int dx, int dy)
     var collisionObjects = GameEngine.Instance.GetGameObjects()
         .Where(e => e.PosX == targetX && e.PosY == targetY);
 
-  
-
-    // If no Obstacles found or collision with Key, MOVE
-    if (collisionObjects.Count() == 0 || collisionObjects.First() is Key)
+    // If no Obstacles found MOVE
+    if (collisionObjects.Count() == 0 )
     {
         _prevPosX = _posX;
         _prevPosY = _posY;
@@ -100,12 +98,8 @@ public void Move(int dx, int dy)
     {
         var obj = collisionObjects.First();
 
-        if (obj is Key || obj is Goal)
-        {
-           
-            return;
-        }
-        else if (obj is Help)
+ 
+         if (obj is Help)
         {
             InteractWithHelp((Help)obj);
         }
