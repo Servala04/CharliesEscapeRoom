@@ -4,7 +4,12 @@
     "height": 8
   },
   "gameObjects": [
-
+    {
+      "Type": 6,
+      "Color": 5,
+      "PosX": 3,
+      "PosY": 6
+    },
     {
       "Type": 0,
       "Color": 5,

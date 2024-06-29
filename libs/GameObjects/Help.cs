@@ -6,14 +6,14 @@ using System.Text.Json;
 
 namespace libs
 {
-    public class Npc : GameObject
+    public class Help : GameObject
     {
         public Dialog dialog;
 
-        public Npc() : base()
+        public Help() : base()
         {
-            Type = GameObjectType.Npc;
-            CharRepresentation = '⚇';
+            Type = GameObjectType.Help;
+            CharRepresentation = '?'; 
             Color = ConsoleColor.DarkGreen;
 
             string jsonFilePath = @"..\libs\Dialog\Dialogs\dialog1.json";

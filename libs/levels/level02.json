@@ -5,6 +5,11 @@
   },
   "gameObjects": [
     {
+      "Type": 6,
+      "Color": 5,
+      "PosX": 3,
+      "PosY": 2
+    },{
       "Type": 5,
       "PosX": 32,
       "PosY": 5

@@ -6,5 +6,5 @@ public enum GameObjectType
   Goal,
   Floor,
   Key,
-  Npc
+  Help
 }

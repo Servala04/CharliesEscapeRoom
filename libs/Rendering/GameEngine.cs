@@ -50,7 +50,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello! Welcome to the first level! You need to deliver a letter to the Bruno the Bear and leave through the door!";
+    string dialogMessage = "Hello! Welcome to the first level! You need to talk to Bruno the Bear and leave through the door!";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -368,7 +368,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                         dialogMessage = "End of the day! You have completed all the levels!";
                     }
                     else {
-                        dialogMessage = "You need to deliver a letter to the NPC and leave through the door!";
+                        dialogMessage = "You need to talk to the NPC and leave through the door!";
                     }
                     return false;
                 }
@@ -381,11 +381,11 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                     player.HasKey = false;
                   
                      if(currentLevelIndex == 1){
-                    dialogMessage = "Welcome to the second level! You need to deliver a letter to Daisy the cow and leave through the door!";
+                    dialogMessage = "Welcome to the second level! You need to talk to Daisy the cow and leave through the door!";
 
                     }
                     if(currentLevelIndex == 2){
-                    dialogMessage = "Welcome to the last level! You need to deliver a letter to the Kai the seagull and leave through the door!";
+                    dialogMessage = "Welcome to the last level! You need to talk to Kai the seagull and leave through the door!";
 
                     }
                     //dialogMessage = "Welcome to the next level! You need to talk to the NPC and leave through the door!";
@@ -408,13 +408,13 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                       else if (player.HasKey)
                                 {
                                     if(currentLevelIndex == 0){
-                                                                            dialogMessage = "Bruno: Thank you for the letter! You can now leave through the door!";
+                                                                            dialogMessage = "Bruno: Hi Chalie! The key? Of course, here you go. You can now leave through the door!";
                                     }
                                     if(currentLevelIndex == 1){
-                                                                            dialogMessage = "Daisy: Ah Charlie dear! Thank you for the letter! You can now leave through the door!";
+                                                                            dialogMessage = "Daisy: Ah Charlie dear! You need the key? Sure darling! You can now leave through the door!";
                                     }
                                     if(currentLevelIndex == 2){
-                                                                            dialogMessage = "Kai: Ahoy Charlie, thank you for the letter! You can now leave through the door!";
+                                                                            dialogMessage = "Kai: Ahoy Charlie, I heard you were looking for this? You can now leave through the door!";
                                     }
                                   //  dialogMessage = "Good you talked to the NPC, now you need to reach the door to escape the room!";
                                     return false;
@@ -524,10 +524,7 @@ public void AddGameObject(GameObject gameObject)
     gameObjects.Add(gameObject);
    // Console.WriteLine($"GameObject added: {gameObject.GetType().Name} at position ({gameObject.PosX}, {gameObject.PosY})");
 
-    if (gameObject is Npc npc)
-    {
-        Console.WriteLine($"Npc has dialog");
-    }
+   
 }
 
 

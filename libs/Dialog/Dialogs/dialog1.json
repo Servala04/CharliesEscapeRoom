@@ -2,12 +2,13 @@
     "Nodes": [
       {
         "DialogID": "1",
-        "Text": "Hello, how can I help you?",
+        "Text": "Hi Charlie, how can I help you?",
         "Responses": [
           {
-            "ResponseText": "I need some information.",
+            "ResponseText": "I need some help.",
             "NextNodeID": "2"
           },
+          
           {
             "ResponseText": "Nothing, thanks.",
             "NextNodeID": "5"
@@ -19,12 +20,16 @@
         "Text": "Sure, what information do you need?",
         "Responses": [
           {
-            "ResponseText": "Tell me more.",
+            "ResponseText": "What should I do?",
             "NextNodeID": "4"
           },
           {
-            "ResponseText": "Nevermind.",
+            "ResponseText": "Where is the Npc?",
             "NextNodeID": "3"
+          },
+          {
+            "ResponseText": "Nevermind.",
+            "NextNodeID": "5"
           }
         ]
       },
@@ -40,8 +45,13 @@
       },
       {
         "DialogID": "4",
-        "Text": "Here is the information you requested.",
+        "Text": "You should find the Npc to get the Key and open the door.",
         "Responses": [
+          {
+            "ResponseText": "I found the Key!",
+            "NextNodeID": "6"
+          },
+         
           {
             "ResponseText": "Thank you.",
             "NextNodeID": "5"
@@ -52,6 +62,16 @@
         "DialogID": "5",
         "Text": "Goodbye!",
         "Responses": []
+      },
+      {
+        "DialogID": "6",
+        "Text": "Great! Now you can open the door.",
+        "Responses": [
+          {
+            "ResponseText": "Thank you.",
+            "NextNodeID": "5"
+          }
+        ]
       }
     ],
     "StartingNode": {

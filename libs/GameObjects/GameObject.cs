@@ -105,26 +105,26 @@ public void Move(int dx, int dy)
            
             return;
         }
-        else if (obj is Npc)
+        else if (obj is Help)
         {
-            InteractWithNpc((Npc)obj);
+            InteractWithHelp((Help)obj);
         }
     }
 }
 
-void InteractWithNpc(Npc npc)
+void InteractWithHelp(Help Help)
 {
-    if (npc.HasDialog())
+    if (Help.HasDialog())
     {
-        npc.dialog.Start(); // Start the dialog if NPC has one
+        Help.dialog.Start(); // Start the dialog if Help has one
     }
     else
     {
-        Console.WriteLine("This NPC has no dialog.");
-        // Handle case where NPC has no dialog
+        Console.WriteLine("This Help has no dialog.");
+        // Handle case where Help has no dialog
     }
 }
-public bool HasDialog() //all npcs have dialog
+public bool HasDialog() //all Helps have dialog
 {
 return true;
 }

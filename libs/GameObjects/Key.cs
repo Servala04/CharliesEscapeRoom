@@ -6,7 +6,7 @@ namespace libs
         {
 //Original Key - replaced with NPC
             Type = GameObjectType.Key;
-            CharRepresentation = '⚇'; //ᴥ⎈⏳⚇☺❔
+            CharRepresentation =  '⚇';//ᴥ⎈⏳⚇☺❔
             Color = ConsoleColor.DarkGreen;
         }
     }
