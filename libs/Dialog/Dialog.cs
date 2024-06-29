@@ -1,59 +1,68 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 
-namespace libs;
-
-    
-
-public class Dialog
-{  
-    private DialogNode _currentNode;
-    private DialogNode _startingNode;
-
-    private DialogNode _endNode;
-
-    public Dialog (DialogNode startingNode)
+namespace libs
+{
+    public class Dialog
     {
-        _startingNode = startingNode;
-        _currentNode = startingNode;
-        _endNode = new DialogNode("There is nothing left to say...");
-    }
+        private DialogNode _currentNode;
+        private DialogNode _endNode;
 
-    public void Start()
-    {
-        //(int x, int y) = Console.GetCursorPosition();
-        //TODO Clear Buffer of Console to overwrite the nodes
-        while (_currentNode != null)
+        public Dialog(DialogNode startingNode)
         {
-            Console.WriteLine(_currentNode.Text);
-            for (int i = 0; i < _currentNode.Responses.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {_currentNode.Responses[i].ResponseText}");
-            }
-
-            int choice;
-            if(_currentNode.Responses.Count == 0)
-                break;
-
-            while (true)
-            {
-                Console.Write("Choose an option: ");
-                if (int.TryParse(Console.ReadLine(), out choice) && choice > 0 && choice <= _currentNode.Responses.Count)
-                {
-                    break;
-                }
-                Console.WriteLine("Invalid choice, please try again.");
-            }
-
-            _currentNode = _currentNode.Responses[choice - 1].NextNode;
+            _currentNode = startingNode;
+            _endNode = new DialogNode("End of dialog.");
         }
 
-        _currentNode = _endNode;
+        public void Start()
+        {
+            while (_currentNode != null)
+            {
+                Console.WriteLine($"Current Node: {_currentNode.dialogID} - {_currentNode.Text}");
+                for (int i = 0; i < _currentNode.Responses.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {_currentNode.Responses[i].ResponseText}");
+                }
 
-        Console.WriteLine("End of dialog.");
-        Thread.Sleep(2000);
+                if (_currentNode.Responses.Count == 0)
+                {
+                    Console.WriteLine("No responses available." +  _currentNode.Text);
+                    break;
+                }
 
+                int choice;
+                while (true)
+                {
+                    Console.Write("Choose an option: ");
+                    if (int.TryParse(Console.ReadLine(), out choice) && choice > 0 && choice <= _currentNode.Responses.Count)
+                    {
+                     
+                        break;
+                    }
+                    Console.WriteLine("Invalid choice, please try again.");
+                }
+
+                var nextNode = _currentNode.Responses[choice - 1].NextNode;
+                if (nextNode != null)
+                {
+                    Console.WriteLine($"Transitioning to Node: {nextNode.dialogID} - {nextNode.Text}");
+                       Console.WriteLine("Next Node Responses:");
+                    for (int i = 0; i < nextNode.Responses.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {nextNode.Responses[i].ResponseText}");
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Next node is null.");
+                }
+
+                _currentNode = nextNode;
+            }
+
+            Console.WriteLine(_endNode.Text);
+            Thread.Sleep(2000);
+        }
     }
 }

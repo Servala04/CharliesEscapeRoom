@@ -102,7 +102,7 @@ public void Move(int dx, int dy)
 
         if (obj is Key || obj is Goal)
         {
-            Console.WriteLine("Collision detected with Key or Goal.");
+           
             return;
         }
         else if (obj is Npc)
@@ -114,7 +114,6 @@ public void Move(int dx, int dy)
 
 void InteractWithNpc(Npc npc)
 {
-    Console.WriteLine("Should have" + npc.HasDialog());
     if (npc.HasDialog())
     {
         npc.dialog.Start(); // Start the dialog if NPC has one
@@ -125,9 +124,8 @@ void InteractWithNpc(Npc npc)
         // Handle case where NPC has no dialog
     }
 }
-public bool HasDialog()
+public bool HasDialog() //all npcs have dialog
 {
-   
 return true;
 }
 

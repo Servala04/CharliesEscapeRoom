@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using libs; // Adjust namespace as per your project structure
 
 namespace libs
 {
@@ -11,75 +10,49 @@ namespace libs
     {
         public Dialog dialog;
 
-    public Npc() : base()
-{
-    Type = GameObjectType.Npc;
-    CharRepresentation = '⚇';
-    Color = ConsoleColor.DarkGreen;
-
-    string jsonFilePath = @"..\libs\Dialog\Dialogs\dialog1.json";
-
-    try
-    {
-      //  Console.WriteLine($"Reading dialog JSON file from path: {Path.GetFullPath(jsonFilePath)}");
-
-        string jsonString = File.ReadAllText(jsonFilePath);
-     //   Console.WriteLine("Dialog JSON file content:");
-      //  Console.WriteLine(jsonString); WORKS
-
-        var dialogData = JsonSerializer.Deserialize<DialogData>(jsonString);
-       // Console.WriteLine("Deserialized dialog data successfully.");
-
-        // Initialize dialog nodes and responses
-        var dialogNodes = new Dictionary<string, DialogNode>();
-       foreach (var nodeData in dialogData.Nodes)
-{
-    Console.WriteLine($"Processing node: {nodeData.DialogID}");
-
-    var dialogNode = new DialogNode(nodeData.DialogID, nodeData.Text);
-
-    if (nodeData.Responses != null)
-    {
-        foreach (var responseData in nodeData.Responses)
+        public Npc() : base()
         {
-            Console.WriteLine($"Processing response: {responseData.ResponseText} -> {responseData.NextNodeID}");
-            if (string.IsNullOrEmpty(responseData.NextNodeID))
-            {
-                Console.WriteLine("Warning: NextNodeID is null or empty.");
-                continue;
-            }
+            Type = GameObjectType.Npc;
+            CharRepresentation = '⚇';
+            Color = ConsoleColor.DarkGreen;
 
-            var nextNode = dialogData.Nodes.FirstOrDefault(n => n.DialogID == responseData.NextNodeID);
-            if (nextNode == null)
-            {
-                Console.WriteLine($"Error: NextNodeID '{responseData.NextNodeID}' not found in dialog nodes.");
-                continue;
-            }
+            string jsonFilePath = @"..\libs\Dialog\Dialogs\dialog1.json";
+                string jsonString = File.ReadAllText(jsonFilePath);
+                DialogTexts dialogTexts = JsonSerializer.Deserialize<DialogTexts>(jsonString);
 
-            dialogNode.AddResponse(responseData.ResponseText, new DialogNode(nextNode.DialogID, nextNode.Text));
+
+                // Initialize dialog nodes and responses
+                Dictionary<string, DialogNode> dialogDir = new Dictionary<string, DialogNode>();
+                foreach (var nodeData in dialogTexts.Nodes)
+                {
+                    dialogDir[nodeData.DialogID] = new DialogNode(nodeData.Text);
+                }
+                foreach (var nodeData in dialogTexts.Nodes){
+              DialogNode currentNode =  dialogDir[nodeData.DialogID];
+              foreach (var response in nodeData.Responses){
+                currentNode.AddResponse(response.ResponseText, dialogDir[response.NextNodeID]);
+                }
+                }
+                List<DialogNode> dialogNodes = new List<DialogNode>(dialogDir.Values);
+                dialog = new Dialog(dialogDir["1"]);
+
         }
+        
     }
-
-    dialogNodes.Add(dialogNode.dialogID, dialogNode);
-}
-
-        // Set starting node
-        if (dialogData.StartingNode != null && dialogNodes.ContainsKey(dialogData.StartingNode.DialogID))
-        {
-            var startingNode = dialogNodes[dialogData.StartingNode.DialogID];
-            dialog = new Dialog(startingNode);
-        //    Console.WriteLine("Dialog initialized successfully.");
-            //Console.WriteLine($"Starting Node Text: {startingNode.Text}");
-        }
-        else
-        {
-            Console.WriteLine("Starting node is missing or not found in dialog nodes.");
-        }
-    }
-    catch (Exception ex)
+    public class DialogTexts
     {
-        Console.WriteLine($"Error loading dialog from JSON: {ex.Message}");
-        // Handle error as needed
+        public List<DialogTextData> Nodes { get; set; }
+    
+    }
+    public class DialogTextData
+    {
+        public string DialogID { get; set; }
+        public string Text { get; set; }
+        public List<ResponseData> Responses { get; set; }
+    }
+    public class ResponseData
+    {
+        public string ResponseText { get; set; }
+        public string NextNodeID { get; set; }
     }
 }
-    }}
