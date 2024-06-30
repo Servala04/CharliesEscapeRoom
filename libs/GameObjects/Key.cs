@@ -4,9 +4,9 @@ namespace libs
     {
         public Key() : base()
         {
-
+//Original Key - replaced with NPC
             Type = GameObjectType.Key;
-            CharRepresentation = '⚿';
+            CharRepresentation =  '⚇';//ᴥ⎈⏳⚇☺❔
             Color = ConsoleColor.DarkGreen;
         }
     }

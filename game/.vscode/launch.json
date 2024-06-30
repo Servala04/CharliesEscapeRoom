@@ -10,8 +10,8 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "console": "integratedTerminal", // Add this line
-        },
-        // Other configurations...
+            "console": "integratedTerminal"
+        }
+
     ]
 }

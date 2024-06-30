@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "KNCaEIBjugQjCb9lj1yj6+gKseuDjNYII2ISEe68NWeHzCWr6N46Y5wvPMH1zoL5WkrHkM0vtLSj4ig9Zqs2Zw==",
   "success": true,
   "projectFilePath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\laura\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+=======
+  "dgSpecHash": "574ICb+8Q3mACtH5KPtqcgwPivlxmZi9KcId8EhtcLjMZic/5MMZZyI0i0w44f3qFnsxOehSqSz4DrhRMxOVxA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kendl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+>>>>>>> MenuPlusDialog
   ],
   "logs": []
 }

@@ -5,6 +5,6 @@ public enum GameObjectType
   Box,
   Goal,
   Floor,
-  Trap,
-  Key
+  Key,
+  Help
 }

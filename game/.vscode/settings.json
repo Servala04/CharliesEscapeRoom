@@ -1,4 +1,7 @@
 {
-    "terminal.integrated.fontSize": 42,
-    "terminal.integrated.lineHeight": 1
+    "terminal.integrated.fontSize": 60,
+    "terminal.integrated.lineHeight": 1.5,   
+    "terminal.integrated.letterSpacing":5,
+        "terminal.integrated.fontFamily": "monospace",
+    
 }

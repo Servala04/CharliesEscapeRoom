@@ -1,0 +1,81 @@
+{
+    "Nodes": [
+      {
+        "DialogID": "1",
+        "Text": "Hi Charlie, how can I help you?",
+        "Responses": [
+          {
+            "ResponseText": "I need some help.",
+            "NextNodeID": "2"
+          },
+          
+          {
+            "ResponseText": "Nothing, thanks.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "2",
+        "Text": "Sure, what information do you need?",
+        "Responses": [
+          {
+            "ResponseText": "What should I do?",
+            "NextNodeID": "4"
+          },
+          {
+            "ResponseText": "Where is the Npc?",
+            "NextNodeID": "3"
+          },
+          {
+            "ResponseText": "Nevermind.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "3",
+        "Text": "Sorry, I can't help with that.",
+        "Responses": [
+          {
+            "ResponseText": "Okay, goodbye.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "4",
+        "Text": "You should find the Npc to get the Key and open the door.",
+        "Responses": [
+          {
+            "ResponseText": "I found the Key!",
+            "NextNodeID": "6"
+          },
+         
+          {
+            "ResponseText": "Thank you.",
+            "NextNodeID": "5"
+          }
+        ]
+      },
+      {
+        "DialogID": "5",
+        "Text": "Goodbye!",
+        "Responses": []
+      },
+      {
+        "DialogID": "6",
+        "Text": "Great! Now you can open the door.",
+        "Responses": [
+          {
+            "ResponseText": "Thank you.",
+            "NextNodeID": "5"
+          }
+        ]
+      }
+    ],
+    "StartingNode": {
+      "DialogID": "1"
+    }
+  }
+  

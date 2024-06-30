@@ -4,7 +4,41 @@
     "height": 9
   },
   "gameObjects": [
+    {
+      "Type": 6,
+      "Color": 5,
+      "PosX": 3,
+      "PosY": 2
+    },{
+      "Type": 5,
+      "PosX": 32,
+      "PosY": 5
 
+    },
+    {
+      
+      "Type": 1,
+      "PosX": 22,
+      "PosY": 2
+    },
+    {
+      
+      "Type": 2,
+      "PosX": 22,
+      "PosY": 6
+    },
+    {
+      
+      "Type": 2,
+      "PosX": 22,
+      "PosY": 7
+    },
+    {
+      
+      "Type": 2,
+      "PosX": 30,
+      "PosY": 7
+    },
     {
       "Type": 0,
       "Color": 5,
@@ -491,12 +525,7 @@
       "CharRepresentation": "☰"
 
     },
-    {
-      "Type": 6,
-      "PosX": 20,
-      "PosY": 2
-
-    },
+  
     {
       "Type": 1,
       "PosX": 18,

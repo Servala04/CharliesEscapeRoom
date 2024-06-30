@@ -12,6 +12,7 @@ public class GameObject : IGameObject, IMovement
     public bool Collidable{ get; set; }
     public bool Movable{ get; set; }
     public bool HasKey{ get; set; }
+       // public virtual bool HasDialog => false;
 
     private char _charRepresentation = '#';
     private ConsoleColor _color;
@@ -72,16 +73,55 @@ public class GameObject : IGameObject, IMovement
     public int GetPrevPosX() {
         return _prevPosX;
     }
+    //DIALOG STUFF
+    public Dialog? dialog;
 
+    protected List<DialogNode> dialogNodes = new List<DialogNode>();
 
-    public void Move(int dx, int dy) {
+public void Move(int dx, int dy)
+{
+    int targetX = _posX + dx;
+    int targetY = _posY + dy;
 
+    var collisionObjects = GameEngine.Instance.GetGameObjects()
+        .Where(e => e.PosX == targetX && e.PosY == targetY);
+
+    // If no Obstacles found MOVE
+    if (collisionObjects.Count() == 0 )
+    {
         _prevPosX = _posX;
         _prevPosY = _posY;
         _posX += dx;
         _posY += dy;
-        Console.WriteLine("New Position: (" + _posX + ", " + _posY + ")");
     }
+    else
+    {
+        var obj = collisionObjects.First();
+
+ 
+         if (obj is Help)
+        {
+            InteractWithHelp((Help)obj);
+        }
+    }
+}
+
+void InteractWithHelp(Help Help)
+{
+    if (Help.HasDialog())
+    {
+        Help.dialog.Start(); // Start the dialog if Help has one
+    }
+    else
+    {
+        Console.WriteLine("This Help has no dialog.");
+        // Handle case where Help has no dialog
+    }
+}
+public bool HasDialog() //all Helps have dialog
+{
+return true;
+}
 
     public void UndoMove() {
         _posX = _prevPosX;
@@ -150,12 +190,14 @@ public class GameObject : IGameObject, IMovement
             {
                 player.HasKey = true;
                    key.PosX = -1;
+                   Console.WriteLine("Key Collected");
                 //set player boolean to true
                 break;
 
             }
         }
     }
+
 
   //check if the pushed box collides with another box
   public void CheckCollisionWithAllBoxes(List<GameObject> boxes, GameObject player, Direction playerDirection, int dx, int dy)
@@ -229,4 +271,8 @@ public class GameObject : IGameObject, IMovement
       boxToPush.PosX = newBoxPosX;
       boxToPush.PosY = newBoxPosY;
   }
+
+
+  
 }
+

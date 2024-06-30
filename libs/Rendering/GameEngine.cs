@@ -22,6 +22,9 @@ public sealed class GameEngine
      private TimeSpan countdownDuration = TimeSpan.FromMinutes(4);
      private TimeSpan countdown;
 
+
+     public bool gameHasStarted = false;
+
     public static GameEngine Instance
     {
         get
@@ -50,7 +53,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello! Welcome to the game! Find the key to unlock the door and escape the room!";
+    string dialogMessage = "Hello! Welcome to the first level! You need to talk to Bruno the Bear and leave through the door!";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -165,6 +168,7 @@ public sealed class GameEngine
         return boxObjects;
     }
 
+
     public Player GetPlayerObject()
     {
         foreach (var gameObject in gameObjects)
@@ -220,6 +224,13 @@ public sealed class GameEngine
         return keyObjects;
     }
 
+
+ public List<GameObject> GetGameObjects()
+{
+    return Instance.gameObjects
+    .Where(obj => obj.Type != GameObjectType.Key && obj.Type != GameObjectType.Goal)
+    .ToList();
+}
 
 
 public void CheckWallCollision(GameObject player, Direction playerDirection)
@@ -345,6 +356,39 @@ private void StartGame()
         }
     }
 
+public void MainMenu()
+    {
+        bool exit = false;
+
+        while (!exit)
+        {
+            Console.Clear();
+            Console.WriteLine("Welcome to the Game!");
+            Console.WriteLine("1. Start Game");
+            Console.WriteLine("2. Exit");
+
+            Console.Write("Select an option: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    Setup();
+                    gameHasStarted = true;
+                    exit = true;
+                    break;
+                case "2":
+                    Console.Write("Close the Terminal...");
+                    exit = true;
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please select again.");
+                    break;
+            }
+        }
+    }
+
+
     public void Setup()
     {
 
@@ -359,6 +403,7 @@ private void StartGame()
         foreach (var gameObject in gameData.gameObjects)
         {
             AddGameObject(CreateGameObject(gameObject));
+         
         }
 
         _focusedObject = gameObjects.OfType<Player>().First();
@@ -394,7 +439,7 @@ private void StartGame()
             {
                 if (key == null)
                 {
-                    Console.WriteLine("Error: The key object is null.");
+                    Console.WriteLine("Error: The NPC object is null.");
                     return false; // Return false to indicate that the level cannot be finished due to error
                 }
                 if (goal == null)
@@ -410,10 +455,10 @@ private void StartGame()
                if (player.PosX == goal.PosX && player.PosY == goal.PosY && !player.HasKey)
                 {
                     if (currentLevelIndex == 3) {
-                        dialogMessage = "Congratulations! You have escaped!";
+                        dialogMessage = "End of the day! You have completed all the levels!";
                     }
                     else {
-                        dialogMessage = "You need to find the key to unlock the door!";
+                        dialogMessage = "You need to talk to the NPC and leave through the door!";
                     }
                     return false;
                 }
@@ -424,7 +469,16 @@ private void StartGame()
                     // Increment the current level index
                     currentLevelIndex++;
                     player.HasKey = false;
-                    dialogMessage = "Welcome to the next level! Search for the key to unlock the door.";
+                  
+                     if(currentLevelIndex == 1){
+                    dialogMessage = "Welcome to the second level! You need to talk to Daisy the cow and leave through the door!";
+
+                    }
+                    if(currentLevelIndex == 2){
+                    dialogMessage = "Welcome to the last level! You need to talk to Kai the seagull and leave through the door!";
+
+                    }
+                    //dialogMessage = "Welcome to the next level! You need to talk to the NPC and leave through the door!";
                     // Check if there are more levels to load
                     if (currentLevelIndex < levelFilePaths.Length)
                     {
@@ -436,6 +490,8 @@ private void StartGame()
                     }
                     else
                     {
+                        gameHasStarted = false;
+                        ResetGame();
                         Console.WriteLine("All levels completed!");
                     }
 
@@ -443,7 +499,16 @@ private void StartGame()
                 }
                       else if (player.HasKey)
                                 {
-                                    dialogMessage = "Good you found the key, now you need to reach the door to escape the room!";
+                                    if(currentLevelIndex == 0){
+                                                                            dialogMessage = "Bruno: Hi Chalie! The key? Of course, here you go. You can now leave through the door!";
+                                    }
+                                    if(currentLevelIndex == 1){
+                                                                            dialogMessage = "Daisy: Ah Charlie dear! You need the key? Sure darling! You can now leave through the door!";
+                                    }
+                                    if(currentLevelIndex == 2){
+                                                                            dialogMessage = "Kai: Ahoy Charlie, I heard you were looking for this? You can now leave through the door!";
+                                    }
+                                  //  dialogMessage = "Good you talked to the NPC, now you need to reach the door to escape the room!";
                                     return false;
                                 }
                 else
@@ -451,6 +516,18 @@ private void StartGame()
                     return false;
                 }
             }
+
+public void ResetGame()
+{
+    currentLevelIndex = 0;
+    moveCount = 0;
+    startTime = DateTime.Now;
+    countdown = countdownDuration;
+    gameObjects.Clear();
+    gameStates.Clear();
+    dialogMessage = "Hello! Welcome to the first level! You need to talk to Bruno the Bear and leave through the door!";
+    LoadLevel(Path.Combine("..", "libs", "levels", levelFilePaths[currentLevelIndex])); // Load the first level
+}
 
     public void Render()
     {
@@ -465,7 +542,7 @@ private void StartGame()
        }
 
         //Clean the map
-        Console.Clear();
+       // Console.Clear();
 
         // Render timer underneath the map
         RenderTimer();
@@ -482,6 +559,7 @@ private void StartGame()
         {
             //Render the map
             Console.WriteLine("Level finished!");
+            
         }
         else
         {
@@ -546,9 +624,14 @@ private void StartGame()
         return gameObjectFactory.CreateGameObject(obj);
     }
 
-    public void AddGameObject(GameObject gameObject){
-        gameObjects.Add(gameObject);
-    }
+public void AddGameObject(GameObject gameObject)
+{
+    gameObjects.Add(gameObject);
+   // Console.WriteLine($"GameObject added: {gameObject.GetType().Name} at position ({gameObject.PosX}, {gameObject.PosY})");
+
+   
+}
+
 
     private void PlaceGameObjects()
     {
