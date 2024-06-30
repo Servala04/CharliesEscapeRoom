@@ -12,11 +12,6 @@ class Program
         var engine = GameEngine.Instance;
         var inputHandler = InputHandler.Instance;
 
-<<<<<<< HEAD
-        engine.MainMenu();
-
-=======
->>>>>>> MenuPlusDialog
         // Main game loop
         while (true)
         {

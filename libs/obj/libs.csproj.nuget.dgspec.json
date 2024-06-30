@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj",
-        "projectName": "libs",
-        "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj",
-        "packagesPath": "C:\\Users\\kendl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\kendl\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> MenuPlusDialog
         ],
         "originalTargetFrameworks": [
           "net8.0"

@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+771e6e04c732832bd66b3c22238329553d339ec8")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+743e2e1b145dc58f217057cba275a12d2a992a60")]
->>>>>>> MenuPlusDialog
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+283ab269c733a8ffbafd7dbed5b48f7af8fe5534")]
 [assembly: System.Reflection.AssemblyProductAttribute("game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -73,16 +73,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\laura\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\kendl\\.nuget\\packages\\": {}
->>>>>>> MenuPlusDialog
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj",
       "projectName": "game",
       "projectPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj",
@@ -91,16 +86,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj",
-      "projectName": "game",
-      "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj",
-      "packagesPath": "C:\\Users\\kendl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\kendl\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> MenuPlusDialog
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -112,13 +97,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj": {
               "projectPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj"
-=======
-            "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj": {
-              "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj"
->>>>>>> MenuPlusDialog
             }
           }
         }
@@ -156,5 +136,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

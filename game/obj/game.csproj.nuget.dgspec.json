@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\game\\game.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj",
-        "projectName": "game",
-        "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\game.csproj",
-        "packagesPath": "C:\\Users\\kendl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\game\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\kendl\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> MenuPlusDialog
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -43,13 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj": {
                 "projectPath": "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj"
-=======
-              "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj": {
-                "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj"
->>>>>>> MenuPlusDialog
               }
             }
           }
@@ -88,7 +66,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\laura\\Documents\\CharliesEscapeRoom\\libs\\libs.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -100,19 +77,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj",
-        "projectName": "libs",
-        "projectPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\libs.csproj",
-        "packagesPath": "C:\\Users\\kendl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kendl\\OneDrive\\Documents\\GitHub\\CharliesEscapeRoom\\libs\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\kendl\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> MenuPlusDialog
         ],
         "originalTargetFrameworks": [
           "net8.0"
